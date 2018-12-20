@@ -10,9 +10,9 @@ using namespace std;
 class Line {
 
 public:
-    Line &setLength(double length);
+    Line &set_length(double length);
 
-    double getLength(void);
+    double get_length(void);
 
     Line();//构造函数
 
@@ -21,7 +21,7 @@ public:
     ~Line();
 
 private:
-    double length;
+    double length_;
 };
 
 //长远函数定义，包含构造函数
@@ -30,17 +30,17 @@ Line::Line(void) {
 }
 
 Line::Line(double length) {
-    this->length = length;
+    this->length_ = length;
     cout << "Line is being created by specification construct." << endl;
 }
 
-Line &Line::setLength(double length) {
-    this->length = length;
+Line &Line::set_length(double length) {
+    this->length_ = length;
     return *this;
 }
 
-double Line::getLength() {
-    return this->length;
+double Line::get_length() {
+    return this->length_;
 }
 
 Line::~Line() {
@@ -50,9 +50,9 @@ Line::~Line() {
 int main() {
 
     Line line1;
-    line1.setLength(6.0);
-    cout << "Length of line1: " << line1.getLength() << endl;
+    line1.set_length(6.0);
+    cout << "Length of line1: " << line1.get_length() << endl;
 
     Line line2(16);
-    cout << "Length of line2: " << line2.getLength() << endl;
+    cout << "Length of line2: " << line2.get_length() << endl;
 }
