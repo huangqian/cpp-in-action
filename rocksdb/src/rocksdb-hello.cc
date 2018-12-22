@@ -12,13 +12,35 @@
 
 
 using namespace std;
+using namespace rocksdb;
+
+
 
 int main()
 {
 
     rocksdb::DB* db;
     rocksdb::Options options;
+    options.create_if_missing = true;
     rocksdb::Status status = rocksdb::DB::Open(options, "/tmp/testdb", &db);
-    cout << "status: " << status.ok() << endl;
+    if(status.ok()){
+        cout << "RocksDB open success !!!" << endl;
+    }else {
+        cerr << "RocksDB open fail ! message: " << status.ToString() << endl;
+    }
+
+    status = db->Put(WriteOptions(), "username", "jerry");
+    assert(status.ok());
+    status = db->Put(WriteOptions(), "age", "28");
+    assert(status.ok());
+
+    string username;
+    status = db->Get(ReadOptions(), "username", &username);
+    assert(status.ok());
+
+    string age;
+    status = db->Get(ReadOptions(), "age", &age);
+    assert(status.ok());
+    cout << "username=" << username << ", age=" << age << endl;
 
 }
