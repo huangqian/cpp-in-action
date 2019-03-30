@@ -7,7 +7,6 @@ include_directories(/usr/local/opt/mysql++/include/mysql++
         /usr/local/opt/mysql-client/include/mysql)
 
 
-add_executable(MySQL src/mysql-hello.cc)
 
 add_executable(mysql-hello src/mysql-hello.cc)
 
