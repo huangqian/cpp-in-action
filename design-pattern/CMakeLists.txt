@@ -3,4 +3,4 @@ project(design_pattern)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(design_pattern main.cpp src/singleton/singleton.cc)
+add_executable(design_pattern main.cpp src/singleton/singleton.cc src/factory/factory.cpp src/factory/factory.h)
